@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Art Stack Prototype</title>
+  </head>
+  <body>
+    <h1>Current Request</h1>
+    <ul class="productRequests">
+      <% for (let i=0; i < info.length; i++) {%>
+      <li class="productRequest-item">
+        <span><%= info[i].productName %></span>
+      </li>
+      <% } %>
+    </ul>
+
+    <h2>Add A Shelf Sign Request:</h2>
+
+    <form action="/addShelfRequest" method="POST">
+      <input type="text" placeholder="Item Name" name="productName" />
+      <input type="text" placeholder="Product Price" name="productPrice" />
+      <input type="text" placeholder="Size" name="productSize" />
+      <input type="text" placeholder="SKU" name="productSku" />
+      <p>Is the sign missing currently?</p>
+      <input type="radio" name="signMissingYes" id="" /><label for=""
+        >Yes</label
+      >
+      <input type="radio" name="signMissingNo" id="" /><label for="">No</label>
+      <textarea
+        name="tastingNotes"
+        id=""
+        cols="30"
+        rows="10"
+        placeholder="Please tell us any interesting product details"
+      ></textarea>
+      <input type="submit" />
+    </form>
+  </body>
+</html>
