@@ -1,0 +1,11 @@
+.productRequests {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.productRequest-item {
+  list-style: none;
+  border: 1px solid black;
+  padding: 1em 2em 1em 2em;
+}

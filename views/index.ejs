@@ -5,37 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Art Stack Prototype</title>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <h1>Current Request</h1>
     <ul class="productRequests">
       <% for (let i=0; i < info.length; i++) {%>
       <li class="productRequest-item">
-        <span><%= info[i].productName %></span>
+        <span class="fa-solid fa-x"></span>
+        <h3>Name: <%= info[i].productName %></h3>
+        <p>Price: <%= info[i].productPrice %></p>
+        <p>Size: <%= info[i].productSize %></p>
+        <p>SKU: <%= info[i].productSku %></p>
+        <p>Is Sign Missing: <%= info[i].signMissing %></p>
+        <p>Tasting Notes: <%= info[i].tastingNotes %></p>
+        <p>Date Requested: <%= info[i].dateRequested %></p>
       </li>
       <% } %>
     </ul>
 
     <h2>Add A Shelf Sign Request:</h2>
 
-    <form action="/addShelfRequest" method="POST">
-      <input type="text" placeholder="Item Name" name="productName" />
-      <input type="text" placeholder="Product Price" name="productPrice" />
-      <input type="text" placeholder="Size" name="productSize" />
-      <input type="text" placeholder="SKU" name="productSku" />
-      <p>Is the sign missing currently?</p>
-      <input type="radio" name="signMissingYes" id="" /><label for=""
-        >Yes</label
-      >
-      <input type="radio" name="signMissingNo" id="" /><label for="">No</label>
-      <textarea
-        name="tastingNotes"
-        id=""
-        cols="30"
-        rows="10"
-        placeholder="Please tell us any interesting product details"
-      ></textarea>
-      <input type="submit" />
-    </form>
+    <div class="signRequestForm">
+      <form action="/addShelfRequest" method="POST">
+        <input type="text" placeholder="Item Name" name="productName" />
+        <input type="text" placeholder="Product Price" name="productPrice" />
+        <input type="text" placeholder="Size" name="productSize" />
+        <input type="text" placeholder="SKU" name="productSku" />
+        <p>Is the sign missing currently?</p>
+        <input type="radio" name="signMissing" id="" /><label for="">Yes</label>
+        <textarea
+          name="tastingNotes"
+          id=""
+          cols="30"
+          rows="10"
+          placeholder="Please tell us any interesting product details"
+        ></textarea>
+        <input type="submit" />
+      </form>
+    </div>
   </body>
 </html>

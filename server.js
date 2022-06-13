@@ -28,8 +28,26 @@ app.get('/', (req, res) => {
     .sort({ dateRequested: -1 })
     .toArray()
     .then((data) => {
-      console.log(data);
       res.render('index.ejs', { info: data });
+    })
+    .catch((error) => console.log(error));
+});
+
+app.post('/addShelfRequest', (req, res) => {
+  let currentDate = new Date().toDateString();
+  db.collection('shelf-sign-request')
+    .insertOne({
+      productName: req.body.productName,
+      productPrice: req.body.productPrice,
+      productSize: req.body.productSize,
+      productSku: req.body.productSku,
+      signMissing: req.body.signMissing === 'on' ? true : false,
+      tastingNotes: req.body.tastingNotes,
+      dateRequested: currentDate,
+    })
+    .then((result) => {
+      console.log('Product Request Added');
+      res.redirect('/');
     })
     .catch((error) => console.log(error));
 });
